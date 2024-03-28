@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlueWave - Shop</title>
+  <link rel="stylesheet" href="shop.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div id="navbar"> NAV BAR </div>
+  
+  <!--button onclick="openCart()" style="border-style: none; background-color: white;">
+    <img src="cart.png" style="width: 30px; right: 85%; margin-top: 10px;" id="cart_img" >
+  </button-->
+
+  <div id="cart">
+    <h3>Your Cart</h3>
+    <ul id="cart-items">
+    </ul>
+    <div id="total-area">
+    </div>
+
+    <button onclick="resetCart()" id="reset-cart-button">Reset</button>
+    <button onclick="checkOut()" id="check-out-button">Check-Out</button>
+    
+  </div>
+
+  <img id="landing-image" src="landing.jpg">
+
+  <div id="overlay">
+    <div id="overlay-content">
+      <button onclick="checkOut()" id="close-overlay-button">Close</button>
+      <h2>Almost done</h2>
+      <div class="grid-container">
+          <div class="grid-item" id="pd">
+            <h3>Payment Details</h3>
+            <h4>Payment Information</h4>
+            <form id="form1">
+              <label for="cardNum">Card Number <span class="required">*</span></label>
+              <input type="number" id="cardNum" required>
+              <label for="cardName">Name <span class="required">*</span></label>
+              <input type="text" id="cardName">
+              <label for="expdate">Expiry Date <span class="required">*</span></label>
+              <input type="text" required placeholder="MM/YY" id="expdate">
+              <label for="ccv">CCV <span class="required">*</span></label>
+              <input type="number" id="ccv">
+              <input type="reset" value="reset">
+            </form>
+          </div>
+          <div class="grid-item" id="os">
+            <h3>Order Summary </h3>
+            <h4>Cart</h4>
+            <ul id="cart-items-c">
+            </ul>
+            <div id="total-area-c">
+            </div>
+
+            <button value="reset" onclick="resetForms()" id="reset-form-button">Reset Form</button>
+            <button value="submit" onclick="submitForms()" id="submit-form-button">Make Payment</button>
+          </div>
+          <div class="grid-item" id="ba">
+            <h3>Billing Address</h3>
+            <h4>Address</h4>
+            <form id="form2">
+              <label for="add1">Address Line 1 <span class="required">*</span></label>
+              <input type="text" id="add1" required>
+              <label for="add2">Address Line 2</label>
+              <input type="text" id="add2">
+              <label for="town">Town/City <span class="required">*</span></label>
+              <input type="text" required id="town">
+              <label for="state">State/County</label>
+              <input type="text" id="state">
+              <label for="postcode">Postcode/Zip code <span class="required">*</span></label>
+              <input type="number" required id="postcode">
+
+              <input type="reset" value="reset">
+            </form>
+          </div>
+          <div class="grid-item" id="cd">
+            <h3>Contact Details</h3>
+            <form id="form3">
+              <label for="f_name">First Name <span class="required">*</span></label>
+              <input type="text" id="f_name" required>
+              <label for="l_name">Last Name <span class="required">*</span></label>
+              <input type="text" id="l_name" required>
+              <label for="phone">Phone Number <span class="required">*</span></label>
+              <input type="number" id="phone" required>
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input type="email">
+
+              <input type="reset" value="reset">
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="product-container">
+
+    <div class="product" id="product1">
+      <img src="/Product_images/Product1/product1_white.jpg" alt="Product 1" id="product1_img">
+      <p class="product-name">Sunset n' Blue Tee</p>
+      <p>$10.00</p>
+      <div class="product-details">
+        <p>Crafted for comfort and style, perfect for adding a touch of beachy charm to your wardrobe.</p>
+        <button onclick="addToCart('Sunset Blue Tee', 10.00, '1'), openCart()">Add to Cart</button>
+        <label for="quantity">quantity: </label>
+        <input type="number" id="quantity1" name="quantity" min="1" value="1">
+        <label for="colour1">Colour:</label>
+        <select name="colour1" id="colour1">
+          <option value="white">White</option>
+          <option value="ivory">Ivory</option>
+          <option value="lightblue">Light Blue</option>
+          <option value="mint">Mint</option>
+          <option value="grey">Grey</option>
+        </select>
+        <label for="size1">Size:</label>
+        <select name="size1" id="size1">
+          <option value="s">Small</option>
+          <option value="m">Medium</option>
+          <option value="l">Large</option>
+          <option value="xl">Extra Large</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="/Product_images/Product2/product2_mint.jpg" alt="Product 1" id="product2_img">
+      <p class="product-name">Well Whale Tee</p>
+      <p>$10.00</p>
+      <div class="product-details">
+        <p>Casual style, crafted with soft fabrics for ultimate comfort.</p>
+        <button onclick="addToCart('Well Whale Tee', 10.00, '2'), openCart()">Add to Cart</button>
+        <label for="quantity">quantity: </label>
+        <input type="number" id="quantity2" name="quantity" min="1" value="1">
+        <label for="colour2">Colour:</label>
+        <select name="colour2" id="colour2">
+          <option value="mint">Mint</option>
+          <option value="ivory">Ivory</option>
+          <option value="lightblue">Light Blue</option>
+          <option value="white">White</option>
+          <option value="grey">Grey</option>
+        </select>
+        <label for="size2">Size:</label>
+        <select name="size2" id="size2">
+          <option value="s">Small</option>
+          <option value="m">Medium</option>
+          <option value="l">Large</option>
+          <option value="xl">Extra Large</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="/Product_images/Product3/product3_white.jpg" alt="Product 1">
+      <p class="product-name">BlueWave Tote bag</p>
+      <p>$5.00</p>
+      <div class="product-details">
+        <p>Crafted from recycled materials and featuring a reusable design, make a sustainable statement with our Eco-Friendly Tote Bag.</p>
+        <button onclick="addToCart('BlueWave Tote bag', 5.00, '3'), openCart()">Add to Cart</button>
+        <label for="quantity">quantity: </label>
+        <input type="number" id="quantity3" name="quantity" min="1" value="1">
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="/Product_images/Product4/mug_white.jpg" alt="Product 1" id="product4_img">
+      <p class="product-name">Sunset n' Blue Travel Mug</p>
+      <p>$25.00</p>
+      <div class="product-details">
+        <p>Crafted with eco-conscious materials, this stylish mug not only keeps your beverages hot or cold but also reduces single-use plastic waste. </p>
+        <button onclick="addToCart('Travel Mug', 25.00, '4'), openCart()">Add to Cart</button>
+        <label for="quantity">quantity: </label>
+        <input type="number" id="quantity4" name="quantity" min="1" value="1">
+        <label for="colour4">Colour:</label>
+        <select name="colour4" id="colour4">
+          <option value="white">White</option>
+          <option value="black">Black</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="keagan-henman-xPJYL0l5Ii8-unsplash.jpg" alt="Product 1">
+      <p class="product-name">Product 5</p>
+      <p>$5.00</p>
+      <div class="product-details">
+        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <button onclick="addToCart('Product 5', 5.00, '5'), openCart()">Add to Cart</button>
+        <label for="quantity">quantity: </label>
+        <input type="number" id="quantity5" name="quantity" min="1" value="1">
+      </div>
+    </div>
+    
+    <div class="ad">
+      <img src="ad1.png" id="ad-img">
+    </div>
+    
+  </div>
+  
+  <script src="shop.js"></script>
+</body>
+</html>
